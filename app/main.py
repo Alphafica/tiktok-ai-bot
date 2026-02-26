@@ -19,6 +19,7 @@ def home():
 async def chat(data: dict):
 
     mensaje = data.get("text", "")
+    contexto = data.get("context")
 
     intent = detectar_intent(mensaje)
 
@@ -33,67 +34,49 @@ async def chat(data: dict):
     db.commit()
     db.close()
 
-    # RESPUESTAS CONTROLADAS
+    # prioridad al contexto del botón
+    if contexto:
+        intent = contexto
 
     if intent == "precio":
-
         respuesta = (
             "El tratamiento con Tirzepatide cuesta "
-            "1.500.000 COP e incluye 12 aplicaciones. "
-            "La consulta médica vale 200.000 COP."
+            "1.500.000 COP e incluye 12 aplicaciones durante 3 meses. "
+            "La consulta médica obligatoria cuesta 200.000 COP."
         )
 
-    elif intent == "funcionamiento":
-
+    elif intent == "resultado":
         respuesta = (
-            "Tirzepatide ayuda a controlar el apetito "
-            "y mejorar el metabolismo, facilitando "
-            "la pérdida de peso."
-        )
-
-    elif intent == "resultados":
-
-        respuesta = (
-            "Muchos pacientes logran bajar entre "
-            "20% y 25% de su peso "
-            "con dieta y seguimiento médico."
+            "Los pacientes suelen perder entre 20% y 25% de su peso "
+            "cuando combinan Tirzepatide con dieta y ejercicio."
         )
 
     elif intent == "contraindicaciones":
-
         respuesta = (
-            "El tratamiento requiere valoración médica "
-            "para revisar contraindicaciones "
-            "y seguridad del paciente."
+            "El tratamiento debe ser evaluado por el doctor. "
+            "No se recomienda en embarazo, ciertos problemas "
+            "tiroideos o condiciones específicas."
         )
 
     elif intent == "ubicacion":
-
         respuesta = (
-            "Estamos en Ibagué, Colombia "
+            "Estamos ubicados en Ibagué, Colombia "
             "y realizamos envíos a todo el país."
         )
 
     elif intent == "lead_caliente":
 
         respuesta = (
-            "¡Perfecto! Podemos evaluar tu caso "
-            "y explicarte todo el tratamiento."
+            "Perfecto. Podemos enviarte toda la información "
+            "y ayudarte a iniciar el tratamiento."
         )
 
     else:
-
         respuesta = responder(mensaje)
 
-    # Limitar tamaño para TikTok
-    respuesta = respuesta[:350]
-
-    # WhatsApp solo cuando conviene
-    if intent in ["precio", "lead_caliente"]:
-        whatsapp = generar_link()
-        respuesta = f"{respuesta}\n\nWhatsApp:\n{whatsapp}"
+    whatsapp = generar_link()
 
     return {
         "intent": intent,
-        "reply": respuesta
+        "reply": f"{respuesta}\n\nWhatsApp:\n{whatsapp}"
     }
