@@ -33,25 +33,67 @@ async def chat(data: dict):
     db.commit()
     db.close()
 
-    if intent == "lead_caliente":
+    # RESPUESTAS CONTROLADAS
 
-        respuesta = """
-¡Perfecto!
+    if intent == "precio":
 
-Este tratamiento ha ayudado a muchos pacientes a bajar entre 20% y 25% de su peso.
+        respuesta = (
+            "El tratamiento con Tirzepatide cuesta "
+            "1.500.000 COP e incluye 12 aplicaciones. "
+            "La consulta médica vale 200.000 COP."
+        )
 
-El doctor primero realiza una consulta para evaluar tu caso.
+    elif intent == "funcionamiento":
 
-¿Te gustaría que te enviemos toda la información por WhatsApp?
-"""
+        respuesta = (
+            "Tirzepatide ayuda a controlar el apetito "
+            "y mejorar el metabolismo, facilitando "
+            "la pérdida de peso."
+        )
+
+    elif intent == "resultados":
+
+        respuesta = (
+            "Muchos pacientes logran bajar entre "
+            "20% y 25% de su peso "
+            "con dieta y seguimiento médico."
+        )
+
+    elif intent == "contraindicaciones":
+
+        respuesta = (
+            "El tratamiento requiere valoración médica "
+            "para revisar contraindicaciones "
+            "y seguridad del paciente."
+        )
+
+    elif intent == "ubicacion":
+
+        respuesta = (
+            "Estamos en Ibagué, Colombia "
+            "y realizamos envíos a todo el país."
+        )
+
+    elif intent == "lead_caliente":
+
+        respuesta = (
+            "¡Perfecto! Podemos evaluar tu caso "
+            "y explicarte todo el tratamiento."
+        )
 
     else:
 
         respuesta = responder(mensaje)
 
-    whatsapp = generar_link()
+    # Limitar tamaño para TikTok
+    respuesta = respuesta[:350]
+
+    # WhatsApp solo cuando conviene
+    if intent in ["precio", "lead_caliente"]:
+        whatsapp = generar_link()
+        respuesta = f"{respuesta}\n\nWhatsApp:\n{whatsapp}"
 
     return {
         "intent": intent,
-        "reply": f"{respuesta}\n\nWhatsApp:\n{whatsapp}"
+        "reply": respuesta
     }

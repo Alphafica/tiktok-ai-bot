@@ -5,22 +5,17 @@ from .prompts import SYSTEM_PROMPT
 client = OpenAI(api_key=OPENAI_API_KEY)
 
 
-def responder(mensaje):
+def responder(texto):
 
-    try:
+    completion = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": texto}
+        ],
+        max_tokens=120
+    )
 
-        completion = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": SYSTEM_PROMPT},
-                {"role": "user", "content": mensaje}
-            ]
-        )
+    respuesta = completion.choices[0].message.content
 
-        return completion.choices[0].message.content
-
-    except Exception as e:
-
-        print("Error IA:", e)
-
-        return "En este momento estamos teniendo un problema técnico. Escríbenos por WhatsApp y te ayudamos."
+    return respuesta

@@ -1,10 +1,11 @@
-from .config import WHATSAPP_NUMBER
-
-
 def generar_link():
 
-    texto = "Hola vengo desde TikTok quiero información"
+    telefono = "573019140372"
 
-    texto = texto.replace(" ", "%20")
+    mensaje = "Hola vengo desde TikTok quiero información"
 
-    return f"https://wa.me/{WHATSAPP_NUMBER}?text={texto}"
+    mensaje = mensaje.replace(" ", "%20")
+
+    link = f"https://wa.me/{telefono}?text={mensaje}"
+
+    return link

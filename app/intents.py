@@ -5,16 +5,40 @@ def detectar_intent(texto: str):
 
     texto = texto.lower()
 
-    if any(x in texto for x in ["precio", "cuanto", "vale", "costo"]):
+    # PRECIO
+    if any(x in texto for x in [
+        "precio", "cuanto", "vale", "costo", "coste"
+    ]):
         return "precio"
 
-    if any(x in texto for x in ["interesa", "quiero", "empezar"]):
-        return "lead_caliente"
+    # RESULTADOS
+    if any(x in texto for x in [
+        "resultado", "bajar", "peso", "antes", "despues"
+    ]):
+        return "resultados"
 
-    if any(x in texto for x in ["funciona", "resultado", "bajar"]):
-        return "resultado"
+    # FUNCIONAMIENTO
+    if any(x in texto for x in [
+        "funciona", "como funciona", "metodo"
+    ]):
+        return "funcionamiento"
 
-    if any(x in texto for x in ["envio", "ciudad", "donde"]):
+    # CONTRAINDICACIONES
+    if any(x in texto for x in [
+        "contra", "riesgo", "efecto", "secundario"
+    ]):
+        return "contraindicaciones"
+
+    # UBICACION
+    if any(x in texto for x in [
+        "donde", "ubicacion", "ciudad", "envio"
+    ]):
         return "ubicacion"
+
+    # LEAD CALIENTE
+    if any(x in texto for x in [
+        "quiero", "empezar", "me interesa", "cita"
+    ]):
+        return "lead_caliente"
 
     return "general"
