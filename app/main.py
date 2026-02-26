@@ -61,7 +61,7 @@ async def chat(data: dict):
 
         respuesta = (
             "Perfecto 🙌\n\n"
-            "Puedes hablar directamente con el equipo médico aquí:\n\n"
+            "Puedes hablar directamente con el equipo médico aquí(debes copiar el link):\n\n"
             f"{whatsapp}"
         )
 
