@@ -43,14 +43,15 @@ async def chat(data: dict):
             )
 
     elif intent == "resultado":
-        respuesta = responder_intent("resultado")
+        respuesta =  ( 
+                        "Reduce apetito fuerte y antojos, Mejora glucosa, resistencia a la insulina y riesgo metabólico."
+                      "Semana 2–4: menos hambre, Semana 8–12: baja de peso clara. Mes 6+: cambios grandes."
+                     )
 
     elif intent == "contraindicaciones":
      respuesta = (""
-        "1.Antecedentes de cáncer de tiroides"
-        "2.Historia de pancreatitis"
-        "3.Alergia a los AGLP-1"
-        "4.No se puede usar en embarazos."
+        "1.Antecedentes de cáncer de tiroides,2.Historia de pancreatitis,"
+        "3.Alergia a los AGLP-1, 4.No se puede usar en embarazos."
         "5.No se puede usar durante la lactancia"
          )
 
