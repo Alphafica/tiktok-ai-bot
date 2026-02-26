@@ -1,24 +1,45 @@
 from openai import OpenAI
-from .config import OPENAI_API_KEY
 from .prompts import PROMPTS
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = OpenAI()
 
 
-def responder_inteligente(intent):
+def responder(texto):
+
+    completion = client.chat.completions.create(
+        model="gpt-4.1-mini",
+        messages=[
+            {
+                "role": "system",
+                "content": "Eres el asistente del Dr. Carlos Giraldo. Responde breve y claro."
+            },
+            {
+                "role": "user",
+                "content": texto
+            }
+        ],
+        max_tokens=120
+    )
+
+    return completion.choices[0].message.content
+
+
+def responder_intent(intent):
 
     prompt = PROMPTS.get(intent)
 
     if not prompt:
         return "¿En qué puedo ayudarte?"
 
-    respuesta = client.chat.completions.create(
+    completion = client.chat.completions.create(
         model="gpt-4.1-mini",
         messages=[
-            {"role": "system", "content": "Eres el asistente del Dr. Giraldo especialista en pérdida de peso."},
-            {"role": "user", "content": prompt}
+            {
+                "role": "system",
+                "content": prompt
+            }
         ],
-        temperature=0.7
+        max_tokens=120
     )
 
-    return respuesta.choices[0].message.content
+    return completion.choices[0].message.content

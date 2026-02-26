@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .ai import responder
+from .ai import responder, responder_intent
 from .intents import detectar_intent
 from .whatsapp import generar_link
 from .database import engine, Base, SessionLocal
@@ -35,8 +35,7 @@ async def chat(data: dict):
         )
 
     elif intent in ["funciona", "resultado", "contraindicaciones"]:
-
-        respuesta = detectar_intent(intent)
+        respuesta = responder_intent(intent)
 
     elif intent == "lead_caliente":
 
