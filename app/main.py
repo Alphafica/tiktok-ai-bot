@@ -42,7 +42,7 @@ async def chat(data: dict):
             "la persona es adherente a dieta rica en proteínas y ejercicio puede bajar más hasta el 25% de su peso ."
             )
 
-    elif intent == "resultado":
+    elif intent == "resultados":
         respuesta =  ( 
                         "Reduce apetito fuerte y antojos, Mejora glucosa, resistencia a la insulina y riesgo metabólico."
                       "Semana 2–4: menos hambre, Semana 8–12: baja de peso clara. Mes 6+: cambios grandes."
