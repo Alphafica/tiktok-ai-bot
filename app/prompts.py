@@ -35,7 +35,7 @@ A todo el país.
 Contraindicaciones:
 Debe evaluarlo el médico. No se recomienda en embarazo o ciertas condiciones médicas.
 
-Si la persona muestra interés real, invítala a continuar por WhatsApp.
+
 
 Estilo de respuesta:
 Amigable, profesional y breve.
