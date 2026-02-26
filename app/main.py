@@ -18,10 +18,14 @@ def home():
 @app.post("/chat")
 async def chat(data: dict):
 
-    mensaje = data.get("text", "")
+    mensaje = (data.get("text") or "").lower().strip()
     contexto = data.get("context")
 
-    intent = detectar_intent(mensaje)
+    # prioridad al botón
+    if contexto:
+        intent = contexto
+    else:
+        intent = detectar_intent(mensaje)
 
     db = SessionLocal()
 
@@ -34,49 +38,55 @@ async def chat(data: dict):
     db.commit()
     db.close()
 
-    # prioridad al contexto del botón
-    if contexto:
-        intent = contexto
+    # RESPUESTAS
 
     if intent == "precio":
         respuesta = (
             "El tratamiento con Tirzepatide cuesta "
-            "1.500.000 COP e incluye 12 aplicaciones durante 3 meses. "
+            "1.500.000 COP e incluye 12 aplicaciones durante 3 meses.\n\n"
             "La consulta médica obligatoria cuesta 200.000 COP."
         )
 
     elif intent == "resultado":
         respuesta = (
-            "Los pacientes suelen perder entre 20% y 25% de su peso "
-            "cuando combinan Tirzepatide con dieta y ejercicio."
+            "Con Tirzepatide los pacientes suelen perder "
+            "entre 20% y 25% de su peso corporal "
+            "cuando se combina con dieta y ejercicio."
+        )
+
+    elif intent == "funciona":
+        respuesta = (
+            "Tirzepatide actúa controlando el apetito, "
+            "mejorando la insulina y ayudando a reducir grasa corporal."
         )
 
     elif intent == "contraindicaciones":
         respuesta = (
-            "El tratamiento debe ser evaluado por el doctor. "
-            "No se recomienda en embarazo, ciertos problemas "
-            "tiroideos o condiciones específicas."
+            "El tratamiento debe ser evaluado por el doctor.\n\n"
+            "No se recomienda en embarazo, algunos problemas "
+            "tiroideos o condiciones médicas específicas."
         )
 
     elif intent == "ubicacion":
         respuesta = (
-            "Estamos ubicados en Ibagué, Colombia "
-            "y realizamos envíos a todo el país."
+            "Estamos ubicados en Ibagué, Colombia.\n\n"
+            "También atendemos pacientes de otras ciudades."
         )
 
     elif intent == "lead_caliente":
 
+        whatsapp = generar_link()
+
         respuesta = (
-            "Perfecto. Podemos enviarte toda la información "
-            "y ayudarte a iniciar el tratamiento."
+            "Perfecto 🙌\n\n"
+            "Puedes hablar directamente con el equipo médico aquí:\n\n"
+            f"{whatsapp}"
         )
 
     else:
         respuesta = responder(mensaje)
 
-    whatsapp = generar_link()
-
     return {
         "intent": intent,
-        "reply": f"{respuesta}\n\nWhatsApp:\n{whatsapp}"
+        "reply": respuesta
     }
