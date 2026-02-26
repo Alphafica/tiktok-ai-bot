@@ -37,7 +37,7 @@ def detectar_intent(texto: str):
 
     # LEAD CALIENTE
     if any(x in texto for x in [
-        "quiero", "empezar", "me interesa", "cita"
+        "quiero", "empezar", "me interesa", "cita", "Solicitar cita"
     ]):
         return "lead_caliente"
 
