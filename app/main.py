@@ -30,12 +30,17 @@ async def chat(data: dict):
     if intent == "precio":
 
         respuesta = (
-            "El tratamiento cuesta 1.500.000 COP e incluye 12 aplicaciones "
+            "El tratamiento cuesta 1.500.000 COP, incluye 1 ampolla de  12 aplicaciones "
             "durante 3 meses. La consulta médica cuesta 200.000 COP."
         )
 
     elif intent == "funciona":
-        respuesta = responder_intent("funciona")
+        respuesta =  (
+            "💊El medicamento se llama TIRZEPATIDE es actualmente el Análogo GLP1 Más potente"
+            "su uso es una inyección subcutánea alrededor del ombligo cada 7 días por 3 meses,"
+            "el medicamento es muy potente con una reducción de peso entre el 20% y si "
+            "la persona es adherente a dieta rica en proteínas y ejercicio puede bajar más hasta el 25% de su peso ."
+            )
 
     elif intent == "resultado":
         respuesta = responder_intent("resultado")
