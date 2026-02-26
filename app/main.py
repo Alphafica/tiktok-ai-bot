@@ -1,7 +1,6 @@
 from fastapi import FastAPI
-from .ai import responder
+from .ai import responder, responder_inteligente
 from .intents import detectar_intent
-from .whatsapp import generar_link
 from .database import engine, Base, SessionLocal
 from .models import Lead
 
@@ -10,68 +9,33 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 
-@app.get("/")
-def home():
-    return {"status": "bot funcionando"}
-
-
 @app.post("/chat")
 async def chat(data: dict):
 
-    mensaje = (data.get("text") or "").lower().strip()
+    mensaje = data.get("text", "")
     contexto = data.get("context")
 
-    # prioridad al botón
+    intent = detectar_intent(mensaje)
+
     if contexto:
         intent = contexto
-    else:
-        intent = detectar_intent(mensaje)
 
     db = SessionLocal()
-
-    lead = Lead(
-        mensaje=mensaje,
-        intent=intent
-    )
-
+    lead = Lead(mensaje=mensaje, intent=intent)
     db.add(lead)
     db.commit()
     db.close()
 
-    # RESPUESTAS
-
     if intent == "precio":
+
         respuesta = (
-            "El tratamiento con Tirzepatide cuesta "
-            "1.500.000 COP e incluye 12 aplicaciones durante 3 meses.\n\n"
-            "La consulta médica obligatoria cuesta 200.000 COP."
+            "El tratamiento cuesta 1.500.000 COP e incluye 12 aplicaciones "
+            "durante 3 meses. La consulta médica cuesta 200.000 COP."
         )
 
-    elif intent == "resultado":
-        respuesta = (
-            "Con Tirzepatide los pacientes suelen perder "
-            "entre 20% y 25% de su peso corporal "
-            "cuando se combina con dieta y ejercicio."
-        )
+    elif intent in ["funciona", "resultado", "contraindicaciones"]:
 
-    elif intent == "funciona":
-        respuesta = (
-            "Tirzepatide actúa controlando el apetito, "
-            "mejorando la insulina y ayudando a reducir grasa corporal."
-        )
-
-    elif intent == "contraindicaciones":
-        respuesta = (
-            "El tratamiento debe ser evaluado por el doctor.\n\n"
-            "No se recomienda en embarazo, algunos problemas "
-            "tiroideos o condiciones médicas específicas."
-        )
-
-    elif intent == "ubicacion":
-        respuesta = (
-            "Estamos ubicados en Ibagué, Colombia.\n\n"
-            "También atendemos pacientes de otras ciudades."
-        )
+        respuesta = responder_inteligente(intent)
 
     elif intent == "lead_caliente":
 
@@ -83,10 +47,11 @@ async def chat(data: dict):
             f"{whatsapp}"
         )
 
+
     else:
+
         respuesta = responder(mensaje)
 
     return {
-        "intent": intent,
         "reply": respuesta
     }
