@@ -34,8 +34,14 @@ async def chat(data: dict):
             "durante 3 meses. La consulta médica cuesta 200.000 COP."
         )
 
-    elif intent in ["funciona", "resultado", "contraindicaciones"]:
-        respuesta = responder_intent(intent)
+    elif intent == "funciona":
+        respuesta = responder_intent("funciona")
+
+    elif intent == "resultado":
+        respuesta = responder_intent("resultado")
+
+    elif intent == "contraindicaciones":
+     respuesta = responder_intent("contraindicaciones")
 
     elif intent == "lead_caliente":
 

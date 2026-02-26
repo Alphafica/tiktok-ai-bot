@@ -26,8 +26,14 @@ Invita a continuar la conversación.
 """
 
 FUNCIONA_PROMPT = BASE_PROMPT + """
-Explica brevemente cómo funciona la tirzepatide.
-Lenguaje simple.
+Explica cómo funciona la tirzepatide para bajar de peso.
+
+Debe incluir:
+• Reduce apetito
+• Controla azúcar
+• Ayuda a bajar grasa
+
+Respuesta corta y clara.
 """
 
 RESULTADOS_PROMPT = BASE_PROMPT + """
