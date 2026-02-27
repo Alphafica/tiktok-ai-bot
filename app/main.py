@@ -41,6 +41,12 @@ async def chat(data: dict):
             "el medicamento es muy potente con una reducción de peso entre el 20% y si "
             "la persona es adherente a dieta rica en proteínas y ejercicio puede bajar más hasta el 25% de su peso ."
             )
+    elif intent == "ubicacion":
+        respuesta =  (
+            "💊Estamos Ubicados en la ciudad de Ibagué, Prestamos el "
+            "servicio de Teleconsulta a cualquier parte del país."
+            
+            )    
 
     elif intent == "resultados":
         respuesta =  ( 

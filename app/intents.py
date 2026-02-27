@@ -31,7 +31,7 @@ def detectar_intent(texto: str):
 
     # UBICACION
     if any(x in texto for x in [
-        "donde", "ubicacion", "ciudad", "envio"
+        "donde", "ubicacion", "ciudad", "envio","estan","ubicados","consultorio"
     ]):
         return "ubicacion"
 
