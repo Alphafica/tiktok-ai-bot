@@ -57,8 +57,8 @@ async def chat(data: dict):
         
     elif intent == "envio":
         respuesta =  (
-            "💊Claro que si, el medicamento se envía a tu domicilio por correo certificado, "
-            " se te proporciona número de guía e instrucciones inciales."
+            "🚚 Claro que si, el medicamento se envía a tu domicilio por correo certificado, "
+            "se te proporciona número de guía e instrucciones inciales."
             
             )      
         
@@ -99,8 +99,8 @@ async def chat(data: dict):
         respuesta = (
             "Perfecto 🙌\n\n"
             "Con mucho gusto puedes comunicarte directamente con el equipo médico al whatsapp +573043801974\n\n"
-            " se te asignará tu cita médica y brindaremos toda la información que necesites"
-            " ¡Espero verte pronto en consulta! 💪⚕️"
+            "se te asignará tu cita médica y brindaremos toda la información que necesites\n\n"
+            "¡Espero verte pronto en consulta! 💪⚕️"
             
         )
 
