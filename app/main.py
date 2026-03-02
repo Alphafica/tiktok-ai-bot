@@ -44,7 +44,7 @@ async def chat(data: dict):
         
     elif intent == "bienvenido":
         respuesta =  (
-            "Hola✋, Soy el asistente virtual del Dr. Carlos Giraldo👨‍⚕️, a continuación te dejaré algunas opciones"
+            "Hola✋, Soy el asistente virtual del Dr. Carlos Giraldo👨‍⚕️, a continuación te dejaré algunas opciones "
             "para que puedas obtener la información que deseas."
             
             )    
