@@ -10,12 +10,29 @@ def detectar_intent(texto: str):
         "precio", "cuanto", "vale", "costo", "coste"
     ]):
         return "precio"
+    
+    # BIENVENIDO
+    if any(x in texto for x in [
+        "hola", "Hola", "Info", "buenos", "buenas","dias","tardes","noches", "deseo","informacion"
+    ]):
+        return "bienvenido"
+    
+    # REBOTE
+    if any(x in texto for x in [
+        "efecto", "rebote", "peso", "antes", "despues"
+    ]):
+        return "rebote"
 
     # RESULTADOS
     if any(x in texto for x in [
-        "resultado", "bajar", "peso", "antes", "despues"
+        "resultado", "bajar", "antes", "despues"
     ]):
         return "resultados"
+    # PESO
+    if any(x in texto for x in [
+        "efectivo","baja","peso"
+    ]):
+        return "peso"
 
     # FUNCIONAMIENTO
     if any(x in texto for x in [
@@ -25,13 +42,13 @@ def detectar_intent(texto: str):
 
     # CONTRAINDICACIONES
     if any(x in texto for x in [
-        "contra", "riesgo", "efecto", "secundario"
+        "contra", "riesgo", "contraindicacion", "secundario","contraindicaciones"
     ]):
         return "contraindicaciones"
 
     # UBICACION
     if any(x in texto for x in [
-        "donde", "ubicacion", "ciudad", "envio","estan","ubicados","consultorio"
+        "donde", "ubicacion", "ciudad", "envio","estan","ubicados","consultorio", "ubicación"
     ]):
         return "ubicacion"
 

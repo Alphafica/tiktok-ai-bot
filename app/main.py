@@ -41,18 +41,42 @@ async def chat(data: dict):
             "el medicamento es muy potente con una reducción de peso entre el 20% y si "
             "la persona es adherente a dieta rica en proteínas y ejercicio puede bajar más hasta el 25% de su peso ."
             )
+        
+    elif intent == "bienvenido":
+        respuesta =  (
+            "Hola✋, Soy el asistente virtual del Dr. Carlos Giraldo👨‍⚕️, a continuación te dejaré algunas opciones"
+            "para que puedas obtener la información que deseas."
+            
+            )    
     elif intent == "ubicacion":
         respuesta =  (
             "💊Estamos Ubicados en la ciudad de Ibagué, Prestamos el "
             "servicio de Teleconsulta a cualquier parte del país."
             
             )    
+        
+
+    elif intent == "rebote":
+        respuesta =  (
+            "💊🔴El Efecto Rebote no se produce por la suspención del medicamento, si no por el "
+            "no cumplimiento o mal desarrollo de las recomendaciones médicas para mantener el  "
+            "resultado obtenido con el medicamento."
+            
+            )      
 
     elif intent == "resultados":
         respuesta =  ( 
-                        "Reduce apetito fuerte y antojos, Mejora glucosa, resistencia a la insulina y riesgo metabólico."
-                      "Semana 2–4: menos hambre, Semana 8–12: baja de peso clara. Mes 6+: cambios grandes."
+                      "✅El medicamento tiene una potencia en reducción de peso entre el 20 al 25% del peso que "
+                      "tien el paciente, incluso puede lograr una mayor reducción si cumple con todas "
+                      "las recomedaciones médicas que se explican en la consulta."
                      )
+        
+    elif intent == "peso":
+        respuesta =  ( 
+                      "✅El medicamento es muy potente, cuenta con una reducción garantizada entre  "
+                      "10 a 12 kilos en los primeroos 3 meses de tratamiento siempre y cuando se sigan "
+                      "las recomedaciones médicas que se explican en la consulta."
+                     )    
 
     elif intent == "contraindicaciones":
      respuesta = (""
