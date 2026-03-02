@@ -19,7 +19,7 @@ def detectar_intent(texto: str):
     
     # REBOTE
     if any(x in texto for x in [
-        "efecto", "rebote", "peso", "antes", "despues"
+        "efecto", "rebote", "peso"
     ]):
         return "rebote"
 
@@ -48,14 +48,14 @@ def detectar_intent(texto: str):
 
     # UBICACION
     if any(x in texto for x in [
-        "donde", "ubicacion", "ciudad", "envio","estan","ubicados","consultorio", "ubicación"
+        "donde", "ubicacion", "ciudad", "estan","ubicados","consultorio", "ubicación"
     ]):
         return "ubicacion"
     # ENVIO
     if any(x in texto for x in [
-         "envio","envios"
+         "envio","envios","envíos","envío", "hacen"
     ]):
-        return "ubicacion"
+        return "envio"
 
     # LEAD CALIENTE
     if any(x in texto for x in [
