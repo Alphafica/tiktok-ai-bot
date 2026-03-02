@@ -51,6 +51,11 @@ def detectar_intent(texto: str):
         "donde", "ubicacion", "ciudad", "envio","estan","ubicados","consultorio", "ubicación"
     ]):
         return "ubicacion"
+    # ENVIO
+    if any(x in texto for x in [
+         "envio","envios"
+    ]):
+        return "ubicacion"
 
     # LEAD CALIENTE
     if any(x in texto for x in [
