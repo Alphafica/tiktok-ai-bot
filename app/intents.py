@@ -19,7 +19,7 @@ def detectar_intent(texto: str):
     
     # REBOTE
     if any(x in texto for x in [
-        "efecto", "rebote", "peso"
+        "efecto", "rebote",
     ]):
         return "rebote"
 
