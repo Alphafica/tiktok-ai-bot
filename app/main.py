@@ -74,14 +74,14 @@ async def chat(data: dict):
     elif intent == "resultados":
         respuesta =  ( 
                       "✅El medicamento tiene una potencia en reducción de peso entre el 20 al 25% del peso que "
-                      "tien el paciente, incluso puede lograr una mayor reducción si cumple con todas "
+                      "tiene el paciente, incluso puede lograr una mayor reducción si cumple con todas "
                       "las recomedaciones médicas que se explican en la consulta."
                      )
         
     elif intent == "peso":
         respuesta =  ( 
                       "✅El medicamento es muy potente, cuenta con una reducción garantizada entre  "
-                      "10 a 12 kilos en los primeroos 3 meses de tratamiento siempre y cuando se sigan "
+                      "10 a 12 kilos en los primeros 3 meses de tratamiento siempre y cuando se sigan "
                       "las recomedaciones médicas que se explican en la consulta."
                      )    
 
