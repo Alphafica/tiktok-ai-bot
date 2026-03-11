@@ -37,7 +37,7 @@ async def chat(data: dict):
 
              "🔵 Costo del tratamiento: $1.650.000"
 
-             "🔵 Incluye:"
+             "🔵 Incluye: "
                "1 ampolla de TIRZEPATIDE 60 mg/ml, con la cual se realizan 12 aplicaciones, equivalentes a 3 meses de tratamiento."
 
             " 🔵 Entrega y acompañamiento:"
