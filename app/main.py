@@ -30,16 +30,31 @@ async def chat(data: dict):
     if intent == "precio":
 
         respuesta = (
-            "El tratamiento cuesta 1.500.000 COP, incluye 1 ampolla de  12 aplicaciones "
-            "durante 3 meses. La consulta médica cuesta 200.000 COP."
-        )
+            
+
+             "🔵 Cita de valoración inicial: $200.000 COP." 
+             "Esta consulta médica es indispensable ya que es donde el Dr Carlos Giraldo le explica todo el tratamiento: como usar el medicamento, cuanto tiempo, resultados y efectos secundarios y como manejarlos mientras el paciente se adapta y despeja dudas." 
+
+             "🔵 Costo del tratamiento: $1.650.000"
+
+             "🔵 Incluye: "
+               "1 ampolla de TIRZEPATIDE 60 mg/ml, con la cual se realizan 12 aplicaciones, equivalentes a 3 meses de tratamiento."
+
+            " 🔵 Entrega y acompañamiento:"
+               "El medicamento se envía empacado en cadena de frío vía terrestre, garantizando su correcta conservación. Además, recibirás acompañamiento médico durante todo el proceso. "
+            
+
+     )
 
     elif intent == "funcionamiento":
         respuesta =  (
-            "💊El medicamento se llama TIRZEPATIDE es actualmente el Análogo GLP1 Más potente"
-            "su uso es una inyección subcutánea alrededor del ombligo cada 7 días por 3 meses,"
-            "el medicamento es muy potente con una reducción de peso entre el 20% y si "
-            "la persona es adherente a dieta rica en proteínas y ejercicio puede bajar más hasta el 25% de su peso ."
+            "La Tirzepatide es un medicamento que ayuda a disminuir el apetito, mejorar el metabolismo y facilitar la pérdida de peso."
+
+            "Con seguimiento médico y hábitos adecuados, los pacientes pueden lograr una reducción aproximada del 20% al 25% del peso corporal."
+            "Durante el proceso recibirás: "
+            "✔️ Seguimiento médico"
+            "✔️ Recomendaciones nutricionales"
+            "✔️ Acompañamiento para lograr resultados sostenibles."
             )
         
     elif intent == "bienvenido":
@@ -57,8 +72,8 @@ async def chat(data: dict):
         
     elif intent == "envio":
         respuesta =  (
-            "🚚 Claro que si, el medicamento se envía a tu domicilio por correo certificado, "
-            "se te proporciona número de guía e instrucciones inciales."
+            "🚚 🔵 Entrega del medicamento"
+            "El medicamento se envía empacado en cadena de frío vía terrestre para garantizar su adecuada conservación "
             
             )      
         
@@ -74,14 +89,14 @@ async def chat(data: dict):
     elif intent == "resultados":
         respuesta =  ( 
                       "✅El medicamento tiene una potencia en reducción de peso entre el 20 al 25% del peso que "
-                      "tien el paciente, incluso puede lograr una mayor reducción si cumple con todas "
+                      "tiene el paciente, incluso puede lograr una mayor reducción si cumple con todas "
                       "las recomedaciones médicas que se explican en la consulta."
                      )
         
     elif intent == "peso":
         respuesta =  ( 
                       "✅El medicamento es muy potente, cuenta con una reducción garantizada entre  "
-                      "10 a 12 kilos en los primeroos 3 meses de tratamiento siempre y cuando se sigan "
+                      "10 a 12 kilos en los primeros 3 meses de tratamiento siempre y cuando se sigan "
                       "las recomedaciones médicas que se explican en la consulta."
                      )    
 
@@ -97,10 +112,11 @@ async def chat(data: dict):
         whatsapp = generar_link()
 
         respuesta = (
-            "Perfecto 🙌\n\n"
-            "Con mucho gusto puedes comunicarte directamente con el equipo médico al whatsapp +573043801974\n\n"
-            "se te asignará tu cita médica y brindaremos toda la información que necesites\n\n"
-            "¡Espero verte pronto en consulta! 💪⚕️"
+
+            "📅 Si deseas agendar tu valoración, escríbenos al whatsapp +573043801974:\n\n "
+              "  Nombre completo , edad y ciudad . "
+               " y te ayudaremos a programar tu cita.\n\n"
+                "¡Espero verte pronto en consulta! 💪⚕️"
             
         )
 

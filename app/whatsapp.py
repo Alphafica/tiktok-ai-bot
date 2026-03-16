@@ -8,4 +8,4 @@ def generar_link():
 
     link = f"https://wa.me/{telefono}?text={mensaje}"
 
-    return link
+    return link 
