@@ -33,28 +33,28 @@ async def chat(data: dict):
             
 
              "🔵 Cita de valoración inicial: $200.000 COP." 
-             "Esta consulta médica es indispensable ya que es donde el Dr Carlos Giraldo le explica todo el tratamiento: como usar el medicamento, cuanto tiempo, resultados y efectos secundarios y como manejarlos mientras el paciente se adapta y despeja dudas." 
+             "Esta consulta médica es indispensable ya que es donde el Dr Carlos Giraldo le explica todo el tratamiento: como usar el medicamento, cuanto tiempo \n\n, resultados y efectos secundarios y como manejarlos mientras el paciente se adapta y despeja dudas." 
 
-             "🔵 Costo del tratamiento: $1.650.000"
+             "🔵 Costo del tratamiento: $1.650.000\n\n"
 
              "🔵 Incluye: "
-               "1 ampolla de TIRZEPATIDE 60 mg/ml, con la cual se realizan 12 aplicaciones, equivalentes a 3 meses de tratamiento."
+               "1 ampolla de TIRZEPATIDE 60 mg/ml, con la cual se realizan 12 aplicaciones, equivalentes a 3 meses de tratamiento.\n\n"
 
             " 🔵 Entrega y acompañamiento:"
-               "El medicamento se envía empacado en cadena de frío vía terrestre, garantizando su correcta conservación. Además, recibirás acompañamiento médico durante todo el proceso. "
+               "El medicamento se envía empacado en cadena de frío vía terrestre, garantizando su correcta conservación. Además, recibirás acompañamiento médico durante todo el proceso.\n\n "
             
 
      )
 
     elif intent == "funcionamiento":
         respuesta =  (
-            "La Tirzepatide es un medicamento que ayuda a disminuir el apetito, mejorar el metabolismo y facilitar la pérdida de peso."
+            "La Tirzepatide es un medicamento que ayuda a disminuir el apetito, mejorar el metabolismo y facilitar la pérdida de peso.\n\n"
 
-            "Con seguimiento médico y hábitos adecuados, los pacientes pueden lograr una reducción aproximada del 20% al 25% del peso corporal."
-            "Durante el proceso recibirás: "
-            "✔️ Seguimiento médico"
-            "✔️ Recomendaciones nutricionales"
-            "✔️ Acompañamiento para lograr resultados sostenibles."
+            "Con seguimiento médico y hábitos adecuados, los pacientes pueden lograr una reducción aproximada del 20% al 25% del peso corporal.\n\n"
+            "Durante el proceso recibirás:\n\n "
+            "✔️ Seguimiento médico\n\n"
+            "✔️ Recomendaciones nutricionales\n\n"
+            "✔️ Acompañamiento para lograr resultados sostenibles.\n\n"
             )
         
     elif intent == "bienvenido":
