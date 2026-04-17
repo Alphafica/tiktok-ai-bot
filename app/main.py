@@ -102,8 +102,11 @@ async def chat(data: dict):
 
     elif intent == "contraindicaciones":
      respuesta = (""
-        "1.Antecedentes de cáncer de tiroides,2.Historia de pancreatitis,"
-        "3.Alergia a los AGLP-1, 4.No se puede usar en embarazos."
+        "No se debe usar en pacientes que padezcan de \n\n"          
+        "1.Antecedentes de cáncer de tiroides\n\n"
+        "2.Historia de pancreatitis,\n\n"
+        "3.Alergia a los AGLP-1,\n\n"
+        "4.No se puede usar en embarazos.\n\n"
         "5.No se puede usar durante la lactancia"
          )
 
