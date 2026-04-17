@@ -33,7 +33,7 @@ async def chat(data: dict):
             
 
              "🔵 Cita de valoración inicial: $200.000 COP." 
-             "Esta consulta médica es indispensable ya que es donde el Dr Carlos Giraldo le explica todo el tratamiento: como usar el medicamento, cuanto tiempo \n\n, resultados y efectos secundarios y como manejarlos mientras el paciente se adapta y despeja dudas." 
+             "Esta consulta médica es indispensable ya que es donde el Dr Carlos Giraldo le explica todo el tratamiento: como usar el medicamento, cuanto tiempo , resultados y efectos secundarios y como manejarlos mientras el paciente se adapta y despeja dudas.\n\n" 
 
              "🔵 Costo del tratamiento: $1.650.000\n\n"
 
