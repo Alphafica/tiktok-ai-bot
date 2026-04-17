@@ -41,7 +41,7 @@ async def chat(data: dict):
                "1 ampolla de TIRZEPATIDE 60 mg/ml, con la cual se realizan 12 aplicaciones, equivalentes a 3 meses de tratamiento.\n\n"
 
             " 🔵 Entrega y acompañamiento:"
-               "El medicamento se envía empacado en cadena de frío vía terrestre, garantizando su correcta conservación. Además, recibirás acompañamiento médico durante todo el proceso.\n\n "
+               "El medicamento se envía empacado en cadena de frío vía terrestre, garantizando su correcta conservación. Además, recibirá acompañamiento médico durante todo el proceso.\n\n "
             
 
      )
@@ -59,8 +59,8 @@ async def chat(data: dict):
         
     elif intent == "bienvenido":
         respuesta =  (
-            "Hola✋, Soy el asistente virtual del Dr. Carlos Giraldo👨‍⚕️, a continuación te dejaré algunas opciones "
-            "para que puedas obtener la información que deseas."
+            "Hola✋, Soy el asistente virtual del Dr. Carlos Giraldo👨‍⚕️, a continuación  dejaré algunas opciones "
+            "para que pueda obtener la información que desea."
             
             )    
     elif intent == "ubicacion":
@@ -116,10 +116,10 @@ async def chat(data: dict):
 
         respuesta = (
 
-            "📅 Si deseas agendar tu valoración, escríbenos al whatsapp +573043801974:\n\n "
+            "📅 Si desea agendar su valoración, escríbanos al whatsapp +573043801974:\n\n "
               "  Nombre completo , edad y ciudad . "
-               " y te ayudaremos a programar tu cita.\n\n"
-                "¡Espero verte pronto en consulta! 💪⚕️"
+               " y le ayudaremos a programar su cita.\n\n"
+                "¡Espero verle pronto en consulta! 💪⚕️"
             
         )
 
